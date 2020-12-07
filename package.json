@@ -1,0 +1,25 @@
+{
+  "name": "zen-serve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "zen-serve": "bin/index.js"
+  },
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.2.0",
+    "koa": "^2.13.0",
+    "koa-json-error": "^3.1.2",
+    "koa-static": "^5.0.0",
+    "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
