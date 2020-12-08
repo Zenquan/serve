@@ -1,23 +1,35 @@
+const path= require('path');
+
 let mimes = {
-  'css': 'text/css; charset=utf-8',
-  'less': 'text/css; charset=utf-8',
+  'css': 'text/css',
+  'less': 'text/css',
   'gif': 'image/gif',
-  'html': 'text/html; charset=utf-8',
+  'html': 'text/html',
   'ico': 'image/x-icon',
   'jpeg': 'image/jpeg',
   'jpg': 'image/jpeg',
-  'js': 'text/javascript; charset=utf-8',
-  'json': 'application/json; charset=utf-8',
+  'js': 'text/javascript',
+  'json': 'application/json',
   'pdf': 'application/pdf',
   'png': 'image/png',
   'svg': 'image/svg',
   'swf': 'application/x-shockwave-flash',
   'tiff': 'image/tiff',
-  'txt': 'text/plain; charset=utf-8',
+  'txt': 'text/plain',
   'wav': 'audio/x-wav',
   'wmv': 'video/x-ms-wmv',
   'wma': 'video/x-ms-wma',
-  'xml': 'text/xml; charset=utf-8'
+  'xml': 'text/xml'
 }
 
-module.exports = mimes
+// 解析资源类型
+function parseMime(url) {
+  let extName = path.extname(url)
+  extName = extName ? extName.slice(1) : 'unknown'
+  return mimes[extName]
+};
+
+module.exports = {
+  mimes, 
+  parseMime
+};
