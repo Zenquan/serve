@@ -6,6 +6,11 @@
   "bin": {
     "zen-serve": "bin/index.js"
   },
+  "scripts": {
+    "dev": "node ./index",
+    "test": "ava",
+    "test:dev": "ava --watch"
+  },
   "keywords": [],
   "author": "zenquan",
   "license": "ISC",
@@ -16,9 +21,12 @@
     "koa": "^2.13.0",
     "koa-convert": "^2.0.0",
     "koa-json-error": "^3.1.2",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "react": "^17.0.1",
+    "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
+    "ava": "^3.14.0",
     "nodemon": "^2.0.6"
   }
 }

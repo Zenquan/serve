@@ -14,7 +14,7 @@ const path = require('path');
  */
 const pkg = require('../package.json');
 const argv = require('minimist')(process.argv.slice(2));
-const { IPAdress } = require('../util/os')
+const { getIpAddress } = require('../util/os')
 
 /**
  * --version, -V
@@ -29,8 +29,21 @@ program
 program
   .option('-s, --static')
   .action(async (value, cmd) => {
+    console.log('argv>>>', argv['s']);
     if (argv['s']) {
-      exec(`node ${path.join(__dirname), '../index.js'} -s ${argv['s']}`);
+      argv['s'] && (process.env.static = argv['s']);
+      console.log('>>>', process.env.static);
+      await exec(`npm run dev`);
+      const IPAddress = getIpAddress();
+      await console.log(
+        boxen(
+          `${chalk.blue('Serving!')}\n- Local:  http://localhost:${chalk.red(port)}\n- On Your Network:  http://${IPAddress}:${chalk.red(port)}\nCopied local address to clipboard!`,
+          {
+            padding: 1,
+            borderColor: 'yellow'
+          }
+        )
+      );
     }
   });
 
@@ -39,10 +52,12 @@ program
   .action(async (value, cmd) => {
     if (argv['p']) {
       const port = process.env.port = argv['p'];
-      await exec(`node ${path.join(__dirname), '../index.js'} -s ${argv['s']}`);
+      argv['s'] && (process.env.static = argv['s']);
+      await exec(`npm run dev`);
+      const IPAddress = getIpAddress();
       await console.log(
         boxen(
-          `${chalk.blue('Serving!')}\n- Local:  http://localhost:${chalk.red(port)}\n- On Your Network:  http://${IPAdress}:${chalk.red(port)}\nCopied local address to clipboard!`,
+          `${chalk.blue('Serving!')}\n- Local:  http://localhost:${chalk.red(port)}\n- On Your Network:  http://${IPAddress}:${chalk.red(port)}\nCopied local address to clipboard!`,
           {
             padding: 1,
             borderColor: 'yellow'
