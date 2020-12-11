@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "node ./index",
     "test": "ava",
-    "test:dev": "ava --watch"
+    "test:dev": "ava --watch",
+    "serve": "npx pm2 start index.js --watch -i 2"
   },
   "keywords": [],
   "author": "zenquan",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "ava": "^3.14.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "pm2": "^4.5.0"
   }
 }

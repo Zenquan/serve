@@ -14,8 +14,9 @@ function dir(url, reqPath) {
   </head>
   <body>
   `;
+  // <img src=${path.join(__dirname, '/ico/folder.png')}>
   for (let [index, item] of contentList.entries()) {
-    html = `${html}<li><img src=${path.join(__dirname, '/ico/folder.png')}><a href="${url === '/' ? '' : url}/${item}">${item}</a>`;
+    html = `${html}<li><a href="${url === '/' ? '' : url}/${item}">${item}</a>`;
   }
   html = `${html}</ul></body></html>`;
 
