@@ -7,7 +7,8 @@
     "zen-serve": "bin/index.js"
   },
   "scripts": {
-    "dev": "node ./index",
+    "dev": "nodemon ./index",
+    "start": "node ./index",
     "test": "ava",
     "test:dev": "ava --watch",
     "serve": "npx pm2 start index.js --watch -i 2"

@@ -11,7 +11,7 @@ const {
 module.exports = function (staticPath) {
   return async function static (ctx, next) {
     // 静态资源目录在本地的绝对路径
-    console.log('staticPath>>>', staticPath);
+    // console.log('staticPath111>>>', staticPath);
     // 获取静态资源内容，有可能是文件内容，目录，或404
     let _content = await content(ctx, staticPath);
   
